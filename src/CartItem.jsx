@@ -2,6 +2,7 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { removeItem, updateQuantity } from './CartSlice';
 import './CartItem.css';
+import './ProductList';
 
 const CartItem = ({ onContinueShopping }) => {
     const cart = useSelector(state => state.cart.items);
@@ -24,13 +25,14 @@ const CartItem = ({ onContinueShopping }) => {
         return (parseCost(item.cost) * item.quantity).toFixed(2); // Make sure to return the calculated value as a string with 2 decimal places
     };
 
-    const handleContinueShopping = () => {
-        console.log('Continue Shopping button clicked'); // Debugging
+    const handleContinueShopping = (e) => {
+        e.preventDefault();
         if (onContinueShopping) {
-            onContinueShopping();
+            onContinueShopping(e); // Use the function passed from ProductList
         }
     };
-    
+
+
 
     const handleCheckoutShopping = () => {
         alert('Functionality to be added for future reference');

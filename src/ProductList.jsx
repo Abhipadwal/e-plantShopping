@@ -225,7 +225,7 @@ function ProductList() {
         padding: '15px',
         display: 'flex',
         justifyContent: 'space-between',
-        alignIems: 'center',
+        alignItems: 'center',
         fontSize: '20px',
     }
     const styleObjUl = {
@@ -241,7 +241,7 @@ function ProductList() {
     }
     const handleAddToCart = (product) => {
         dispatch(addItem(product));
-        setAddedToCart((prevState) => ({
+        setaddedToCart((prevState) => ({
             ...prevState,
             [product.name]: true,
         }));
